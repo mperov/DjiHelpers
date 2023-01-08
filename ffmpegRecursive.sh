@@ -1,10 +1,16 @@
 #!/bin/bash
 
 TARGET_DIR=$1
+FFMPEG=`which ffmpeg`
+
+if [ -z "$FFMPEG" ]
+then
+    sudo apt install ffmpeg
+fi
 
 if [ -z "$TARGET_DIR" ]
 then
-    echo "usage: ./ffmpegRecursive.sh path_to_dir"
+    echo "usage: ./ffmpegRecursive.sh path/to/dir"
 fi
 
 IFS=$'\n'; set -f
